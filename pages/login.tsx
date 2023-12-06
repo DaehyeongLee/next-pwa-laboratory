@@ -39,7 +39,7 @@ const Login = () => {
     return (
         <form onSubmit={handleSubmit(handleSignIn)}>
           <Stack justifyContent="flex-start" height="100vh" pb="20px">
-            <Typography variant="h2" fontWeight="bold" textAlign="center" mt={15} mb={10}>
+            <Typography variant="h4" fontWeight="bold" textAlign="center" mt={15} mb={10}>
               로그인
             </Typography>
             <TextField
