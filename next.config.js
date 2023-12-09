@@ -9,11 +9,14 @@ const withPWA = require('next-pwa')({
   runtimeCaching,
   disable: prod ? false : true
 });
+const { i18n } = require('./next-i18next.config')
 
 const nextConfig = withPWA({
   // next config
   pwa: {
     dest: 'public'
-  }
+  },
+  i18n,
+  trailingSlash: true,
 });
 module.exports = nextConfig;
