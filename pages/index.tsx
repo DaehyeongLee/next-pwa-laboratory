@@ -1,3 +1,6 @@
+import { useTranslation } from 'next-i18next'
+
 export default function Page() {
-  return <h1>Hello, Next.js!</h1>
+  const { t } = useTranslation('ko')
+  return <h1>{t('greeting')}</h1>
 }
