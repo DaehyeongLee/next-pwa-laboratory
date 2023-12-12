@@ -1,10 +1,11 @@
 import { useTranslation } from 'next-i18next'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Typography } from '@mui/material'
 
 export default function Page() {
   const { t } = useTranslation('common')
-  return <h1>{t('greeting')}</h1>
+  return <Typography variant='h3'>{t('greeting')}</Typography>
 }
 
 
