@@ -1,4 +1,4 @@
-import React, { useState, useMemo, createContext } from 'react'
+import React, { useState, useMemo, createContext, useEffect } from 'react'
 import { AuthProvider } from '@/components/context/AuthContext'
 import { appWithTranslation } from 'next-i18next'
 import { ThemeProvider } from '@mui/material/styles'
@@ -13,9 +13,18 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [mode, setMode] = useState<'light' | 'dark'>('light')
   const colorMode = useMemo(() => ({
     toggleColorMode: () => {
-      setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
     },
   }), [])
+
+  // FIXME: useEffect 줄이는 방향 고려
+  useEffect(() => {
+    setMode(localStorage.getItem('darkMode') === 'dark' ? 'dark' : 'light')
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', mode)
+  }, [mode])
 
   return (
     <AuthProvider>
