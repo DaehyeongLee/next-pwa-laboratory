@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Box, LinearProgress, Stack, Typography, TextField, Button } from '@mui/material'
+import { Box, LinearProgress, Stack, Typography, TextField, Button, Container } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form/dist/types/form'
 import { useAuthDispatch } from '../components/context/AuthContext'
@@ -47,45 +47,47 @@ const Login = () => {
 
 
   return (
-    <form onSubmit={handleSubmit(handleSignIn)}>
-      <Stack justifyContent="flex-start" height="100vh" pb="20px">
-        <Typography variant="h4" fontWeight="bold" textAlign="center" mt={15} mb={10}>
-          로그인
-        </Typography>
-        <TextField
-          {...register('id', { required: true })}
-          defaultValue=""
-          label="아이디"
-          disabled={isLoading}
-          tabIndex={0}
-          placeholder="ID"
-          error={!!errors.id}
-          helperText={!!errors.id && "아이디를 입력하세요."}
-        />
-        <TextField
-          {...register('password', { required: true })}
-          type="password"
-          defaultValue=""
-          label="비밀번호"
-          disabled={isLoading}
-          tabIndex={1}
-          placeholder="Password"
-          sx={{
-            marginTop: '50px',
-          }}
-          error={!!errors.password}
-          helperText={!!errors.password && "비밀번호를 입력하세요."}
-        />
-        <Button type="submit" color="primary" variant="contained" disabled={isLoading} sx={{ marginTop: 'auto' }}>
-          로그인
-        </Button>
-        {isLoading && (
-          <Box sx={{ width: '100%' }}>
-            <LinearProgress />
-          </Box>
-        )}
-      </Stack>
-    </form>
+    <Container>
+      <form onSubmit={handleSubmit(handleSignIn)}>
+        <Stack justifyContent="flex-start" height="100vh" pb="20px">
+          <Typography variant="h4" fontWeight="bold" textAlign="center" mt={15} mb={10}>
+            로그인
+          </Typography>
+          <TextField
+            {...register('id', { required: true })}
+            defaultValue=""
+            label="아이디"
+            disabled={isLoading}
+            tabIndex={0}
+            placeholder="ID"
+            error={!!errors.id}
+            helperText={!!errors.id && "아이디를 입력하세요."}
+          />
+          <TextField
+            {...register('password', { required: true })}
+            type="password"
+            defaultValue=""
+            label="비밀번호"
+            disabled={isLoading}
+            tabIndex={1}
+            placeholder="Password"
+            sx={{
+              marginTop: '50px',
+            }}
+            error={!!errors.password}
+            helperText={!!errors.password && "비밀번호를 입력하세요."}
+          />
+          <Button type="submit" color="primary" variant="contained" disabled={isLoading} sx={{ marginTop: 'auto' }}>
+            로그인
+          </Button>
+          {isLoading && (
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress />
+            </Box>
+          )}
+        </Stack>
+      </form>
+    </Container>
   )
 }
 
