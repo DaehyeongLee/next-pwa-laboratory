@@ -4,13 +4,15 @@ import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form/dist/types/form'
 import { useAuthDispatch } from '../components/context/AuthContext'
 import { PostSignOut } from '../lib/auth'
+import LoginLayout from '../components/layout/LoginLayout'
+import { NextPageWithLayout } from './_app'
 
 type LoginInputs = {
   id: string
   password: string
 }
 
-const Login = () => {
+const Login: NextPageWithLayout = () => {
   const [isLoading, setLoading] = useState(false)
   const { handleSubmit, setError, register, formState: { errors } } = useForm<LoginInputs>()
   const dispatch = useAuthDispatch()
@@ -90,5 +92,7 @@ const Login = () => {
     </Container>
   )
 }
+
+Login.getLayout = (page) => <LoginLayout>{page}</LoginLayout>
 
 export default Login
