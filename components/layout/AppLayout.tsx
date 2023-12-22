@@ -3,6 +3,7 @@ import { AppBar, Badge, Container, IconButton, Toolbar } from '@mui/material'
 import { useRouter } from 'next/router'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import NotificationsIcon from '@mui/icons-material/Notifications'
+import Offset from './Offset'
 
 const AppLayout: FC<React.PropsWithChildren> = ({ children }) => {
   const router = useRouter()
@@ -25,6 +26,7 @@ const AppLayout: FC<React.PropsWithChildren> = ({ children }) => {
           </IconButton>
         </Toolbar>
       </AppBar>
+      <Offset />
       <Container maxWidth={false}>{children}</Container>
     </>
   )
