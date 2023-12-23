@@ -8,7 +8,6 @@ import appTheme from '../lib/theme'
 import CssBaseline from '@mui/material/CssBaseline'
 import type { AppProps } from 'next/app'
 import AppLayout from '@/components/layout/AppLayout'
-import LoginLayout from '@/components/layout/LoginLayout'
 import { NextPage } from 'next'
 
 export const ColorModeContext = createContext({ toggleColorMode: () => { } })
