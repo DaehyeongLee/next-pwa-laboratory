@@ -13,6 +13,7 @@ import { NextPage } from 'next'
 export const ColorModeContext = createContext({ toggleColorMode: () => { } })
 export type NextPageWithLayout<Props = {}> = NextPage<Props> & {
   getLayout?: (page: React.ReactElement) => React.ReactNode
+  leftActionType?: 'menu' | 'back'
 }
 type AppPropsWithLayout = AppProps<any> & {
   Component: NextPageWithLayout
@@ -38,7 +39,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout =
     Component.getLayout ??
     ((page) => (
-      <AppLayout>
+      <AppLayout leftActionType={Component.leftActionType}>
         {page}
       </AppLayout>
     ))

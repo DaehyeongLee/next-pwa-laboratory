@@ -8,6 +8,7 @@ export default function Page() {
   return <Typography variant='h3'>{t('greeting')}</Typography>
 }
 
+Page.leftActionType = 'menu'
 
 export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
