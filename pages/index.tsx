@@ -33,10 +33,10 @@ export default function Page() {
         }}
       >
         {stepsCarousel.map((content) => (
-          <Box justifyContent="center">
+          <Box key={content.title} justifyContent="center">
             <img src={content.url} style={{ width: '700px', height: '300px' }} />
-            {content.desc.map((description) => (
-              <li>{description}</li>
+            {content.desc.map((description, index) => (
+              <li key={index}>{description}</li>
             ))}
           </Box>
         ))}
