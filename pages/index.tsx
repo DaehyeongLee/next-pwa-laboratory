@@ -3,6 +3,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Typography, Box } from '@mui/material'
 import Carousel from "react-material-ui-carousel"
+import StarToggle from '../components/common/StarToggle/StarToggle'
 
 const stepsCarousel = [
   {
@@ -42,6 +43,7 @@ export default function Page() {
         ))}
       </Carousel>
       <Typography variant='h3'>{t('greeting')}</Typography>
+      <StarToggle />
     </>
   )
 }
