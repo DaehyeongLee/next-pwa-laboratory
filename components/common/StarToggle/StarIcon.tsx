@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from "framer-motion-3d"
+import { motion } from "framer-motion"
 import { degreesToRadians } from "popmotion"
 import { useGLTF } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
@@ -9,8 +9,14 @@ interface StarIcon {
   isHover: boolean
 }
 
+const lights = [
+  [2, 1, 4, 1],
+  [8, 0, 4, 1]
+]
+
+// FIXME: 코드 보완 필요, 아이콘 렌더 안됨
 const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHover }) => {
-  const { nodes } = useGLTF("/glb/star-icon.glb");
+  const { nodes } = useGLTF("glb/star-icon.glb");
 
   return (
     <Canvas
@@ -66,7 +72,4 @@ const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHove
   );
 }
 
-const lights = [
-  [2, 1, 4, 1],
-  [8, 0, 4, 1]
-];
+export default StarIcon
