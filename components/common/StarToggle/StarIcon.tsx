@@ -2,7 +2,9 @@ import React from 'react'
 import { motion } from "framer-motion"
 import { degreesToRadians } from "popmotion"
 import { useGLTF } from "@react-three/drei"
-import { Canvas } from "@react-three/fiber"
+import { Canvas, useLoader } from "@react-three/fiber"
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { Object3D, Object3DEventMap } from 'three'
 
 interface StarIcon {
   isLiked: boolean
@@ -16,8 +18,10 @@ const lights = [
 
 // FIXME: 코드 보완 필요, 아이콘 렌더 안됨
 const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHover }) => {
-  const { nodes } = useGLTF("glb/star-icon.glb");
-
+  // const { nodes } = useLoader(GLTFLoader, "glb/star-icon.glb")
+  // useGLTF.preload('/glb/starIcon.glb')
+  // const { nodes } = useGLTF('/glb/starIcon.glb')
+  
   return (
     <Canvas
       resize={{ offsetSize: true }}
@@ -34,7 +38,7 @@ const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHove
       ))}
       <group dispose={null}>
         <motion.mesh
-          geometry={nodes.Star.geometry}
+          // geometry={nodes.Star.geometry}
           rotation={[Math.PI / 2, 0, degreesToRadians(360)]}
           scale={1}
           animate={[isLiked ? "liked" : "unliked", isHover ? "hover" : ""]}
