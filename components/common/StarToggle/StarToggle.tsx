@@ -7,13 +7,9 @@ const iconFadeTransition: Transition = { duration: 0.2, delay: 0.3 };
 // FIXME: 코드 보완 필요
 const buttonVariants: Variants = {
   rest: {
-    "--button-star-greyscale": "100%",
-    "--button-star-contrast": "0%",
     transition: { duration: 0.7 }
   },
   hover: {
-    "--button-star-greyscale": "0%",
-    "--button-star-contrast": "100%",
     scale: 1.2,
     y: -8
   },
@@ -69,7 +65,7 @@ const StarToggle = () => {
         }}
       >
         <Suspense fallback={null}>
-          <StarIcon isHover={isHover} isLiked={isLiked} />
+          {/* <StarIcon isHover={isHover} isLiked={isLiked} /> */}
         </Suspense>
       </motion.div>
       <div className="label">

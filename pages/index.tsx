@@ -34,7 +34,7 @@ export default function Page() {
         }}
       >
         {stepsCarousel.map((content) => (
-          <Box key={content.title} justifyContent="center">
+          <Box component="div" key={content.title} justifyContent="center">
             <img src={content.url} style={{ width: '700px', height: '300px' }} />
             {content.desc.map((description, index) => (
               <li key={index}>{description}</li>

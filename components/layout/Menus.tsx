@@ -33,7 +33,7 @@ const Menus: FC<React.PropsWithChildren<MenuListProps>> = ({ open, onClose }) =>
         },
       }}
     >
-      <Box>
+      <Box component="div">
         {
           menuList.map(({ href, page, icon }) => (
             <ListItemButton

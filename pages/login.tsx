@@ -83,7 +83,7 @@ const Login: NextPageWithLayout = () => {
             로그인
           </Button>
           {isLoading && (
-            <Box sx={{ width: '100%' }}>
+            <Box component="div" sx={{ width: '100%' }}>
               <LinearProgress />
             </Box>
           )}
