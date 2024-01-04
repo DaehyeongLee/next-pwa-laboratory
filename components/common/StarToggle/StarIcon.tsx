@@ -3,8 +3,6 @@ import { motion } from "framer-motion"
 import { degreesToRadians } from "popmotion"
 import { useGLTF } from "@react-three/drei"
 import { Canvas, useLoader } from "@react-three/fiber"
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-import { Object3D, Object3DEventMap } from 'three'
 
 interface StarIcon {
   isLiked: boolean
