@@ -65,7 +65,7 @@ const StarToggle = () => {
         }}
       >
         <Suspense fallback={null}>
-          {/* <StarIcon isHover={isHover} isLiked={isLiked} /> */}
+          <StarIcon isHover={isHover} isLiked={isLiked} />
         </Suspense>
       </motion.div>
       <div className="label">
