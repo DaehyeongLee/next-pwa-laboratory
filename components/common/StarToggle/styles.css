@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap");
 
-button {
+.star-toggle-button {
   --button-star-greyscale: 100%;
   --button-star-contrast: 0%;
 
@@ -28,7 +28,7 @@ button {
     0px 10px 20px 0px rgba(0, 0, 0, 0.05);
 }
 
-.icon {
+.star-toggle-icon {
   display: block;
   width: 600px;
   height: 300px;
@@ -43,29 +43,29 @@ button {
   left: -240px;
 }
 
-.icon canvas {
+.star-toggle-icon canvas {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.label {
+.star-toggle-label {
   width: 140px;
   padding: 20px 0 22px;
   transform: translateZ(0);
 }
 
-.default {
+.star-toggle-label-default {
   display: block;
 }
 
-.number {
+.star-toggle-number {
   padding: 30px 36px;
   position: relative;
   transform: translateZ(0);
 }
 
-.number:before {
+.star-toggle-number:before {
   content: "";
   position: absolute;
   left: 0;
@@ -76,13 +76,13 @@ button {
   opacity: 0.4;
 }
 
-.current {
+.star-toggle-number-current {
   color: #d9d9d9;
   opacity: 1;
   display: block;
 }
 
-.new {
+.star-toggle-number-new {
   color: #fed600;
   position: absolute;
   top: 30px;

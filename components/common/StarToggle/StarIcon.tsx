@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion } from "framer-motion-3d"
 import { degreesToRadians } from "popmotion"
 import { useGLTF } from "@react-three/drei"
-import { Canvas, useLoader } from "@react-three/fiber"
-import { Object3D } from "three"
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-import { GLTF } from "three-stdlib"
+import { Canvas } from "@react-three/fiber"
 
 interface StarIcon {
   isLiked: boolean
   isHover: boolean
 }
-
-// type GLTFResult = GLTF & {
-//   nodes: {
-//     Star: THREE.Mesh;
-//   }
-// }
 
 const lights = [
   [2, 1, 4, 1],
@@ -25,20 +16,9 @@ const lights = [
 
 const starIcon = '/glb/starIcon.glb'
 
-// FIXME: 코드 보완 필요, 아이콘 렌더 안됨
+// FIXME: 코드 보완 필요, 아이콘 렌더 초기 렌더 시 url 인식 못함
 const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHover }) => {
-  // const { nodes } = useLoader(GLTFLoader, "glb/starIcon.glb")
-  // useGLTF.preload('glb/starIcon.glb')
-  // const { nodes } = useGLTF(starIcon) as GLTFResult
-  const [model, setModel] = useState<Object3D | null>(null)
-
-  useEffect(() => {
-    const loader = new GLTFLoader();
-    loader.load("glb/starIcon.glb", async (gltf) => {
-      const nodes = await gltf.parser.getDependencies("node")
-      setModel(nodes[0])
-    })
-  }, [])
+  const { nodes } = useGLTF(starIcon)
   
   return (
     <Canvas
@@ -57,7 +37,7 @@ const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHove
       <group dispose={null}>
         <motion.mesh
           // @ts-ignore
-          geometry={model?.geometry}
+          geometry={nodes.Star.geometry}
           rotation={[Math.PI / 2, 0, degreesToRadians(360)]}
           scale={1}
           animate={[isLiked ? "liked" : "unliked", isHover ? "hover" : ""]}
@@ -95,4 +75,5 @@ const StarIcon: React.FC<React.PropsWithChildren<StarIcon>> = ({ isLiked, isHove
   );
 }
 
+useGLTF.preload(starIcon)
 export default StarIcon

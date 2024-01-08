@@ -7,9 +7,15 @@ const iconFadeTransition: Transition = { duration: 0.2, delay: 0.3 };
 // FIXME: 코드 보완 필요
 const buttonVariants: Variants = {
   rest: {
+    // @ts-ignore
+    "--button-star-greyscale": "100%",
+    "--button-star-contrast": "0%",
     transition: { duration: 0.7 }
   },
   hover: {
+    // @ts-ignore
+    "--button-star-greyscale": "0%",
+    "--button-star-contrast": "100%",
     scale: 1.2,
     y: -8
   },
@@ -54,9 +60,10 @@ const StarToggle = () => {
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
       onClick={() => setIsLiked(!isLiked)}
+      className="star-toggle-button"
     >
       <motion.div
-        className="icon"
+        className="star-toggle-icon"
         variants={{
           liked: { opacity: 0, transition: iconFadeTransition },
           hover: isLiked
@@ -68,19 +75,19 @@ const StarToggle = () => {
           <StarIcon isHover={isHover} isLiked={isLiked} />
         </Suspense>
       </motion.div>
-      <div className="label">
-        <motion.span variants={labelTextVariants} className="default">
+      <div className="star-toggle-label">
+        <motion.span variants={labelTextVariants} className="star-toggle-label-default">
           Star
-          <motion.span variants={successTextVariants} className="success">
+          <motion.span variants={successTextVariants} className="star-toggle-labelsuccess">
             red
           </motion.span>
         </motion.span>
       </div>
-      <div className="number">
-        <motion.span variants={currentCountVariants} className="current">
+      <div className="star-toggle-number">
+        <motion.span variants={currentCountVariants} className="star-toggle-number-current">
           38
         </motion.span>
-        <motion.span variants={newCountVariants} className="new">
+        <motion.span variants={newCountVariants} className="star-toggle-number-new">
           39
         </motion.span>
       </div>
